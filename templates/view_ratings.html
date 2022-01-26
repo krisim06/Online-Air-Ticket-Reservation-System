@@ -1,0 +1,82 @@
+<html>
+<head>
+</head>
+<body>
+
+	<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+	</style>
+	
+	<h1>Showing the average ratings for every flights in the {{airline}} system</h1>
+
+	<table>
+		<th>Flight Number</th>
+		<th>Departure Date and Time</th>
+		<th>Avg. flight rating</th>
+
+	{% for line in data %}
+		<tr>
+			<td>{{line['Flight_num']}}</td>
+			<td>{{line['Departure_date_time']}}</td>
+			<td>{{line['average_rating']}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+	</br>
+	<form action="/which_flight" method="POST">	
+
+	<label for="which_flight">Choose which flight to view full rating and comments:</label></br>
+	<!-- <select name="which_flight">
+		{% for line in data %}
+	    <option value={'data':[{{line['Flight_num']}},{{line['Departure_date_time']}}]}>Flight num: {{line['Flight_num']}}, Departure date time: {{line['Departure_date_time']}} </option>
+	  	{% endfor %}
+	</select>  -->
+
+	    <label for="Flight_num">Flight Number:</label>
+	    <input type="number" name="Flight_num" max = 9999 min = 1000/> </br>
+
+	    <label for="Departure_date_time">Departure Date and Time:</label>
+	    <input type="datetime-local" name="Departure_date_time" step="1"/>
+	</br>
+
+	<input type="submit" value = "Search" />
+
+	</form>
+
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+
+
+	{% if add_data %}
+	<h3>Showing ratings and comments for:</br>
+	Flight number: {{add_data[0]['Flight_num']}}, departure date time: {{add_data[0]['Departure_date_time']}}</h3>
+	<table>
+		<th>Rating</th>
+		<th>Comment</th>
+
+	{% for line in add_data %}
+		<tr>
+			<td>{{line['Rating']}}</td>
+			<td>{{line['Comment']}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+
+	{% endif %}
+</br>
+
+	
+<a href="/staffhome">Go Back Home</a></br>
+
+
+</body>
+</html>
+
+
+
+<!-- Defaults will be showing all the future flights operated by the airline he/she works for the next 30 days. -->

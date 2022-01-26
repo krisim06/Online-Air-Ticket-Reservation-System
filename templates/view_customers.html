@@ -1,0 +1,39 @@
+<html>
+<head>
+</head>
+<body>
+
+</br>
+<h3>Showing all the {{airline}}'s Customers of Flight number: {{Flight_num}}:</h3>
+
+
+{% if error %}
+	<p class="error"><strong>Error:</strong> {{error}}</p>
+
+{% else %}
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+ 
+		
+<table>
+	<th>Email</th>
+	<th>Name</th>
+
+{% for line in posts %}
+	<tr>
+		<td>{{line['Email']}}</td>
+		<td>{{line['Name']}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+{% endif %}
+
+
+<a href="/viewFlights">Go back to view flights</a></br>
+<a href="/staffhome">Go back to home</a></br>
+</body>
+</html>

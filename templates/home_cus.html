@@ -1,0 +1,26 @@
+<html>
+<head>
+</head>
+<body>
+<form method="POST">
+	<h1>Welcome {{name}}!</h1>
+	<a href="/view_cus">View Your Future Flights</a>
+	</br>
+	<a href="/search_cus">Search for Future Flights</a>
+	</br>
+	<a href="/past_cus">Review Your Past Flights</a>
+	</br>
+	<a href="/track_cus">Track Your Spendings</a>
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+
+</form>
+
+
+<a href="/logout_cus">Logout</a>
+
+</body>
+
+
+</html>

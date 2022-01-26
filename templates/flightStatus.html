@@ -1,0 +1,25 @@
+<html>
+<h2>Status of the flight:</h2>
+    <form action="/viewStatus" method="POST">
+
+        <label for="airline_name">Enter airline name:</label>
+        <input type="text" name="airline_name" max=9999 min=1000 />
+        </br>
+
+        <label for="flight_num">Enter flight number:</label>
+        <input type="number" name="Flight_num" max=9999 min=1000 />
+        </br>
+
+        <label for="Departure_date_time">Arrival Date and Time:</label>
+        <input type="datetime-local" name="Arrival_date_time" step="1" />
+        </br>
+
+        <label for="Departure_date_time">Departure Date and Time:</label>
+        <input type="datetime-local" name="Departure_date_time" step="1" />
+        </br>
+
+        <input type="submit" value="Search" />
+
+    </form>
+
+</html>

@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/registerAuth" method="POST">
+	<input type="text" name = "username" placeholder="username" required/> </br>
+	<input type="password" name = "password" placeholder="password" required/></br>
+	<input type="text" name = "first_name" placeholder="first name"/></br>
+	<input type="text" name = "last_name" placeholder="last name"/></br>
+	<input type="date" name ="date_of_birth" placeholder="date of birth"/></br>
+	<input type="text" name = "airline_name" placeholder="airline name"/></br>
+	<br>
+	<p>Separate multiple phone numbers by semi-colon (;) in this format: 9482033849 (with no dashes or spaces in between)</p>
+	<input type="text" name = "phone_num" placeholder="phone number"/></br>
+	
+	<input type="submit" value = Register />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+<a href="/">Go back</a>
+</body>
+</html>

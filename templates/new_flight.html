@@ -1,0 +1,64 @@
+<html>
+<head>
+</head>
+<body>
+
+	<h1>Make new flight to the system</h1>
+
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+
+<form action="/new_flight_form" method="post">
+
+	<ul>
+	  <li>
+	    <label for="Flight_num">Flight Number:</label>
+	    <input type="number" name="Flight_num" max = 9999 min = 1000/>
+	  </li>
+	  <li>
+	    <label for="Departure_date_time">Departure Date and Time:</label>
+	    <input type="datetime-local" name="Departure_date_time" step="1"/>
+	  </li>
+	  <li>
+	    <label for="Arrival_date_time">Arrival Date and Time:</label>
+	    <input type="datetime-local" name="Arrival_date_time" step="1"/>
+	  </li>
+	  <li>
+	    <label for="Plane_ID">Airplane ID:</label>
+	    <input type="number" name="Plane_ID" max=99999 min = 10000/>
+	  </li>
+	  <li>
+	    <label for="Price">Price:</label>
+	    <input type="number" name="Price" max=999.99 step="0.01" min=0/>
+	  </li>
+	  <li>
+	    <label for="Departure_airport">Departure Airport:</label>
+	    <input type="text" name="Departure_airport" maxlength="3" minlength="3"/>
+	  </li>
+	  <li>
+	    <label for="Arrival_airport">Arrival Airport:</label>
+	    <input type="text" name="Arrival_airport" maxlength="3" minlength="3"/>
+	  </li>
+	  <li>
+	    <label for="Status">Status of flight:</label>
+	    <select name="Status">
+		    <option value="On-time">On time</option>
+		  	<option value="Delayed">Delayed</option>
+		</select>
+	  </li>
+	</ul>
+
+	<input type="submit" value = "Submit" />
+
+</form>
+
+<a href="/staffhome">Go back Home</a></br>
+
+
+</body>
+</html>
+
+
+
+<!-- Defaults will be showing all the future flights operated by the airline he/she works for the next 30 days. -->

@@ -1,0 +1,37 @@
+<html>
+<head>
+</head>
+<body>
+
+	<h1>Change the status of the flight from Delayed to On time (or vice versa)</h1>
+
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+
+<form action="/change_flight_status" method="post">
+
+	<ul>
+	  <li>
+	    <label for="Flight_num">Flight Number:</label>
+	    <input type="number" name="Flight_num" max = 9999 min = 1000/>
+	  </li>
+	  <li>
+	    <label for="Departure_date_time">Departure Date and Time:</label>
+	    <input type="datetime-local" name="Departure_date_time" step="1" />
+	  </li>
+	</ul>
+
+	<input type="submit" value = "Change the status!" />
+
+</form>
+
+<a href="/staffhome">Go Back Home</a></br>
+
+
+</body>
+</html>
+
+
+
+<!-- Defaults will be showing all the future flights operated by the airline he/she works for the next 30 days. -->

@@ -1,0 +1,38 @@
+<html>
+<head>
+</head>
+<body>
+
+	<h1>Showing the top 3 destination in the {{airline}} system</h1>
+	<p>In the order of highest frequency to lowest</p>
+	
+	<br>
+	<h3>Last month (from today to -30 days) top 3 destinations:</h3>
+	
+
+	{% for line in top_des_m %}
+
+	<p>City: <b>{{line["City"]}}</b> Number of tickets sold: <b>{{line["freq"]}}</b></p>
+
+	{% endfor %}
+
+	<br>
+	<h3>Last year (from today to -1 year) top 3 destinations:</h3>
+	
+	{% for line in top_des_y %}
+
+	<p>City: <b>{{line["City"]}}</b> Number of tickets sold: <b>{{line["freq"]}}</b></p>
+
+	{% endfor %}
+
+<br>
+	
+<a href="/staffhome">Go Back Home</a></br>
+
+
+</body>
+</html>
+
+
+
+<!-- Defaults will be showing all the future flights operated by the airline he/she works for the next 30 days. -->

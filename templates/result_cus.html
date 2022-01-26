@@ -1,0 +1,47 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1>Search Result</h1>
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>Flight No.</th>
+	<th>Airline</th>
+	<th>Departure Date</th>
+
+{% for line in data %}
+	<tr>
+		<td>{{line['Flight_num']}}</td>
+		<td>{{line['Airline_name']}}</td>
+		<td>{{line['Departure_date_time']}}</td>
+	</tr>
+{% endfor %}
+</table> </br>
+</br>
+<h2>Search for Ticket</h2>
+
+<form action="/result_cus" method="POST">
+	<label for="Flight_num">Flight Number:</label>
+	<input type="number" name="Flight_num" max=9999 min=1000 required/>
+	<label for="Airline_name">Airline name:</label>
+	<input type="text" name="Airline_name" required/>
+	<label for="Departure_date_time">Departure Date and Time:</label>
+	<input type="datetime-local" name="Departure_date_time" step="1" required/>
+	</br>
+	<input type="submit" value="View Ticket">
+</form>
+</br>
+{% if error %}
+	<p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %}
+
+<a href="/search_cus">Go Back</a>
+
+</body>
+</html>

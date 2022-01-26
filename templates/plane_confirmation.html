@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<body>
+
+
+	<h1>Confirmation page: Adding new airplane to the system</h1>
+	<h4>Are these information correct?</h4>
+
+	<p>Plane ID: {{Plane_ID}}</br>
+	<p>Number of seats: {{Num_seats}}</p></br>
+
+	<form action="/confirm_insert_plane" method="post">
+		<input type="submit" value = "Confirm" />
+	</form>
+
+
+	<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+	</style>
+	
+	<h1>Current all the {{airline}} airplanes</h1>
+
+	<table>
+		<th>Plane ID</th>
+		<th>Number of Seats</th>
+
+	{% for line in data %}
+		<tr>
+			<td>{{line['Plane_ID']}}</td>
+			<td>{{line['Num_seats']}}</td>
+		</tr>
+	{% endfor %}
+	</table>
+
+<a href="/staffhome">Go Back Home</a></br>
+
+
+</body>
+</html>
+
+
+
+<!-- Defaults will be showing all the future flights operated by the airline he/she works for the next 30 days. -->

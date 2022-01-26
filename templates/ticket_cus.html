@@ -1,0 +1,32 @@
+<html>
+<head></head>
+<body>
+
+<form action="/purchase_cus" method="POST">
+<h1>Sold Price: {{data}}</h1> </br>
+
+<label for="card_type">Card Type:</label>
+<select name="card_type" required/>
+	<option value="Credit">Credit</option>
+	<option value="Debit">Debit</option>
+</select> </br>
+
+<label for="card_number">Card Number:</label>
+<input type="text" name="card_number" max=9999999999999999 min=1000000000000000 required/> </br>
+
+<label for="name_on_card">Name On Card:</label>
+<input type="text" name="name_on_card" maxlength="20" required/> </br>
+
+<input type="date" name="card_exp_date" required/>
+<input type="submit" value=Purchase>
+</form>
+
+{% if error %}
+	<p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %}
+
+
+<a href="/search_cus">Go Back</a>
+
+</body>
+</html>

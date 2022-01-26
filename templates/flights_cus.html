@@ -1,0 +1,38 @@
+<html>
+<head>
+</head>
+<body>
+
+<h1>Upcoming Flights</h1>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+
+<table>
+	<th>Flight No.</th>
+	<th>Departure Time</th>
+	<th>Airline</th>
+	<th>Departure Airport</th>
+	<th>Arrival Airport</th>
+	<th>Status</th>
+
+{% for line in data %}
+	<tr>
+		<td>{{line['Flight_num']}}</td>
+		<td>{{line['Departure_date_time']}}</td>
+		<td>{{line['Airline_name']}}</td>
+		<td>{{line['Departure_airport']}}</td>
+		<td>{{line['Arrival_airport']}}</td>
+		<td>{{line['Status']}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+<a href="/home_cus">Go Back</a>
+
+</body>
+</html>

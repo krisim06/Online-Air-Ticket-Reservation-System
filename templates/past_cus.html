@@ -1,0 +1,82 @@
+<html>
+<head></head>
+<body>
+
+<h1>Your Past Flights</h1>
+</br>
+
+{% if error %}
+	<p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %}
+<br>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>Flight No.</th>
+	<th>Departure Date</th>
+	<th>Airline</th>
+
+{% for line in data %}
+	<tr>
+		<td>{{line['Flight_num']}}</td>
+		<td>{{line['Departure_date_time']}}</td>
+		<td>{{line['Airline_name']}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+
+<!-- data=past_data, comment_data
+ -->
+
+<br><br>
+<h1>Your Past Flights With Your Ratings</h1>
+</br>
+
+<table>
+	<th>Flight No.</th>
+	<th>Departure Date</th>
+	<th>Airline</th>
+	<th>Rating</th>
+	<th>Comment</th>
+
+{% for line in comment_data %}
+	<tr>
+		<td>{{line['Flight_num']}}</td>
+		<td>{{line['Departure_date_time']}}</td>
+		<td>{{line['Airline_name']}}</td>
+		<td>{{line['Rating']}}</td>
+		<td>{{line['Comment']}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+
+</br><br>
+<h2>Rate your previous flights:</h2>
+<form action="/post_cus" method="post">
+	<label for="flight_num">Flight Number:</label>
+	<input type="number" name="flight_num" max=9999 min=1000 required/>
+	<label for="airline_name">Airline name:</label>
+	<input type="text" name="airline_name" required/>
+	<label for="departure_date_time">Departure Date and Time:</label>
+	<input type="datetime-local" name="departure_date_time" step="1" required/>
+	</br>
+	<input type="text" name="comment" placeholder="Comment" maxlength="100" required/>
+	</br>
+	<input type="number" name="rating" placeholder="Rating" max=5 min=1 required/>
+	</br>
+	<input type="submit" value=Rate>
+</form>
+
+
+
+<a href="/home_cus">Go Back</a>
+
+</body>
+</html>

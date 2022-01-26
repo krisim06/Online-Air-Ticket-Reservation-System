@@ -1,0 +1,46 @@
+<html>
+<head></head>
+<body>
+
+<h1>Ticket Sale Reports</h1>
+</br>
+<h4>Past Month Sales: {{month}}</h4>
+<h4>Past Year Sales: {{year}}</h4>
+
+</br>
+<h5>Enter date range to view sales report</h5>
+<form action="/report_results" method="POST">
+<input type="date" name="start_date" required/>
+<input type="date" name="end_date" required/>
+<input type="submit" value="View">
+</form>
+</br></br>
+
+{% if msg %}
+	<h3>Month-wise Ticket Sales From {{start}} to {{end}}</h3>
+{% endif %}
+	
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>Month</th>
+
+	<th>Total Sold</th>
+
+{% for line in data %}
+	<tr>
+		<td>{{line['month']}}</td>
+
+		<td>{{line['total_sold']}}</td>
+	</tr>
+{% endfor %}
+</table> </br>
+
+<a href="/staffhome">Go Back Home</a></br>
+
+</body>
+</html>

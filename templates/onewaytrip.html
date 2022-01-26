@@ -1,0 +1,30 @@
+<html>
+<h1>Search for a future one way trip</h1>
+
+
+<body>
+    <form action="/oneway" method="POST">
+
+        <label for="departure_date">Departure Date:</label>
+        <input type="date" name="departure_date" required />
+        </br>
+        <label for="departure_airport">Departure Airport:</label>
+        <input type="text" name="departure_airport" maxlength="50" required />
+        </br>
+        <label for="arrival_airport">Arrival Airport:</label>
+        <input type="text" name="arrival_airport" maxlength="50" required />
+        </br>
+        <input type="submit" value=Search />
+        {% if error %}
+        <p class="error"><strong>Error:</strong> {{error}}</p>
+        {% endif %}
+        {% if msg %}
+        <p class="error"><strong>Notification:</strong> {{msg}} </p>
+        {% endif %}
+    </form>
+
+</body>
+
+     <a href="/">Go Back</a>
+
+</html>

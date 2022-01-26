@@ -1,0 +1,110 @@
+<html>
+<head>
+</head>
+<body>
+
+</br>
+<h3>Showing all the {{type}} flights from {{start}} to {{end}}:</h3>
+	{% if both %}
+	<p>That goes from {{dst}} to {{arr}}</p>
+	{% endif %}
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>Flight Number</th>
+	<th>Departure Date and Time</th>
+	<th>Arrival Date and Time</th>
+	<th>Departure Airport</th>
+	<th>Arrival Airport</th>
+	<!-- <th>Customers</th> -->
+
+{% for line in posts %}
+	<tr>
+		<td>{{line['Flight_num']}}</td>
+		<td>{{line['Departure_date_time']}}</td>
+		<td>{{line['Arrival_date_time']}}</td>
+		<td>{{line['Departure_airport']}}</td>
+		<td>{{line['Arrival_airport']}}</td>
+	</tr>
+{% endfor %}
+</table>
+</br>
+<form action="/post_date" method="POST">
+	
+	<label for="start_time">View flight between:</label>
+	<input type="date" name="start_time">
+	<label for="end_time"> and </label>
+	<input type="date" name="end_time">
+	</br>
+	<input type="submit" value = "View Flights between these dates"/>
+
+</form>
+
+
+<form action="/post_airport" method="POST">
+	
+	<label for="dst_airport">View flight that leaves from (airport code):</label>
+	<input type="text" name="dst_airport" maxlength="3" minlength="3"/>
+	<label for="arr_airport"> and arrives at (airport code):</label>
+	<input type="text" name="arr_airport" maxlength="3" minlength="3"/>
+	</br>
+	<input type="submit" value = "View Flights with these airports"/>
+
+</form>
+
+<form action="/post_city" method="POST">
+	
+	<label for="dst_city">View flight that leaves from (City):</label>
+	<input type="text" name="dst_city"/>
+	<label for="arr_city"> and arrives at (City):</label>
+	<input type="text" name="arr_city"/>
+	</br>
+	<input type="submit" value = "View Flights with these cities"/>
+
+</form>
+
+<form action="/post" method="POST">
+	
+	<label for="start_time">View flight between:</label>
+	<input type="date" name="start_time">
+	<label for="end_time"> and </label>
+	<input type="date" name="end_time">
+	</br>
+
+	<label for="dst_airport">That leaves from (airport code):</label>
+	<input type="text" name="dst_airport" maxlength="3" minlength="3"/>
+	<label for="arr_airport"> and arrives at (airport code):</label>
+	<input type="text" name="arr_airport" maxlength="3" minlength="3"/>
+	</br>
+
+	<input type="submit" value = "View Flights"/>
+
+</form>
+</br>
+<h3>View all customers in a certain flight:</h3>
+<form action="/viewCustomers" method="POST">
+	
+	<label for="flight_num">Enter flight number:</label>
+	<input type="number" name="Flight_num" max = 9999 min = 1000/>
+	</br>
+
+	<label for="Departure_date_time">Departure Date and Time:</label>
+	<input type="datetime-local" name="Departure_date_time" step="1"/>
+	</br>
+
+	<input type="submit" value = "View Customers"/>
+
+</form>
+
+
+<a href="/staffhome">Go back to home</a></br>
+
+</body>
+
+
+</html>

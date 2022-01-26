@@ -1,0 +1,45 @@
+<html>
+<head></head>
+<body>
+
+<h1>View Frequent Customers</h1>
+</br>
+<h4>Most Frequent Customer Within the Last Year: {{most_freq_name}}</h4>
+</br></br>
+
+<form action="/list_flights" method="POST">
+<input type="text" name="email" placeholder="Customer Email" maxlength="40" required/>
+<input type="submit" value=View>
+</form>
+</br>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>Flight No.</th>
+	<th>Airline</th>
+	<th>Departure Time</th>
+
+{% for line in data %}
+	<tr>
+		<td>{{line['Flight_num']}}</td>
+		<td>{{line['Airline_name']}}</td>
+		<td>{{line['Departure_date_time']}}</td>
+	</tr>
+{% endfor %}
+</table> </br>
+
+
+</br>
+{% if error %}
+	<p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %}
+</br>
+<a href="/staffhome">Go Back Home</a></br>
+
+</body>
+</html>

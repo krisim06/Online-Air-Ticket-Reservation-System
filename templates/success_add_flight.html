@@ -1,0 +1,35 @@
+<html>
+<head>
+</head>
+<body>
+
+</br>
+<h2>Success! Successfully added a new flight to the {{airline}} system</h2>
+
+<h3>Current all the flights that departs in the next 30 days</h3>
+
+<p>Specific date range: {{s_date}} - {{e_date}}</p>
+
+<style type="text/css">
+	table, th, td{
+		border: 1px solid black;
+	}
+</style>
+
+<table>
+	<th>Flight Number</th>
+	<th>Departure Date and Time</th>
+
+{% for line in data %}
+	<tr>
+		<td>{{line['Flight_num']}}</td>
+		<td>{{line['Departure_date_time']}}</td>
+	</tr>
+{% endfor %}
+</table>
+
+<a href="/staffhome">Go back Home</a></br>
+
+
+</body>
+</html>

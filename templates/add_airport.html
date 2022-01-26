@@ -1,0 +1,41 @@
+<html>
+<head>
+</head>
+<body>
+
+	<h1>Add an airport to the system</h1>
+
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+
+<form action="/insert_airport" method="post">
+
+	<ul>
+	  <li>
+	    <label for="Code">Airport Code:</label>
+	    <input type="text" name="Code" minlength=3 maxlength=3/>
+	  </li>
+	  <li>
+	    <label for="Name">Airport Name:</label>
+	    <input type="text" name="Name"/>
+	  </li>
+	  <li>
+	    <label for="City">City:</label>
+	    <input type="text" name="City"/>
+	  </li>
+	</ul>
+
+	<input type="submit" value = "Submit" />
+
+</form>
+
+<a href="/staffhome">Go Back Home</a></br>
+
+
+</body>
+</html>
+
+
+
+<!-- Defaults will be showing all the future flights operated by the airline he/she works for the next 30 days. -->

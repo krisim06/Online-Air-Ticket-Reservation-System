@@ -1,0 +1,42 @@
+<html>
+<body>
+
+<style type="text/css">
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+
+
+<h1>Showing the future one way trip based on the input</h1>
+
+ {% if error %}
+        <p class="error"><strong>Error:</strong> {{error}}</p>
+{% endif %}
+
+<table>
+    <th>Airline</th>
+    <th>Flight No.</th>
+    <th>Departure Time</th>
+    <th>Arrival Time</th>
+    <th>Status</th>
+
+    {% for line in data %}
+    <tr>
+        <td>{{line['Airline_name']}}</td>
+        <td>{{line['Flight_num']}}</td>
+        <td>{{line['Departure_date_time']}}</td>
+        <td>{{line['Arrival_date_time']}}</td>
+        <td>{{line['Status']}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+    <a href="/">Go Back</a>
+
+
+</body>
+</html>

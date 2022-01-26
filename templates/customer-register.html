@@ -1,0 +1,47 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width = device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row mt-5">
+			<div class="col-12 text-center">
+				<h1>Customer Register</h1>
+			</div>
+		</div>
+		<div class="row mt-5">
+			<div class="col-12">
+			</div>
+		</div>
+		<div class="row mt-5">
+			<div class="col-12">
+				<form method="POST" action="/registerAuth">
+					<div class="mb-3">
+						<label for="username" class="form-label">username</label>
+						<input type="text" class="form-control" id="username" aria-describedby="username"
+							name="username">
+					</div>
+					<div class="mb-3">
+						<label for="password" class="form-label">password</label>
+						<input type="password" class="form-control" id="password" name="password">
+					</div>
+					<div class="mb-3">
+						<label for="re-password" class="form-label">re-password</label>
+						<input type="password" class="form-control" id="re-password" name="re-password">
+					</div>
+					<button type="submit" value=Register class="btn btn-primary">register</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
